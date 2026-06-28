@@ -2,20 +2,21 @@ package com.dopadream.waterfix.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.PowderSnowBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(PowderSnowBlock.class)
-public class PowderSnowBlockMixin extends Block {
+@Mixin(BlockBehaviour.class)
+public class PowderSnowBlockMixin {
 
-    public PowderSnowBlockMixin(Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    protected float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
-        return 0.2F;
+    @Inject(method = "getShadeBrightness", at = @At("RETURN"), cancellable = true)
+    void watershadefix$overridePowderSnowShade(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Float> cir) {
+        if (state.is(Blocks.POWDER_SNOW)) {
+            cir.setReturnValue(0.2F);
+        }
     }
 }
