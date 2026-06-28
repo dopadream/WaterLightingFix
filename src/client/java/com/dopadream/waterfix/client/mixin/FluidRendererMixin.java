@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public class FluidRendererMixin {
 
     @ModifyVariable(method = "tesselate", at = @At("HEAD"), argsOnly = true, name = "output")
-    private FluidRenderer.Output waterfix$wrapOutput(
+    private FluidRenderer.Output waterlightingfix$wrapOutput(
             FluidRenderer.Output output,
             @Local(argsOnly = true) BlockAndTintGetter level,
             @Local(argsOnly = true) BlockPos pos) {
