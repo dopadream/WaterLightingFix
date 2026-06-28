@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.dopadream.waterfix.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "FluidRendererMixin",
+    "VideoOptionsScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "mixins": [
+  ]
+}

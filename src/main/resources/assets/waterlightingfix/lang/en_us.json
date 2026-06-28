@@ -1,0 +1,4 @@
+{
+  "option.waterlightingfix.water_ao": "Water AO",
+  "options.waterlightingfix.water_ao.tooltip": "Toggles edge vertex shading on the surface of water."
+}

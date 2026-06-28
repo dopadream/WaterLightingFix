@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.dopadream.waterfix.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "PowderSnowBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
